@@ -66,9 +66,37 @@ library(tidyverse)
 
 ## Setting up your GitHub Account
 
-You will need to set up a GitHub account. You will need to do two things: (1) sign up to GitHub at `https://github.com` with an account, and (2) install Github. We will walk through each of these in turn:
+You will need to set up a GitHub account. You will need to do two things: (1) install Github, and (2) sign up to GitHub at `https://github.com` with an account. I have modified instructions from [this document](https://resources.github.com/github-and-rstudio/) for this tutorial. We will walk through each of these sets of instructions in turn:
 
-  -- (1) Go to [Github](https://github.com/)
+\
+\
+
+### Install Git on your PC
+
+  -- (1a) Go to [https://git-scm.com](https://git-scm.com/)
+  
+  -- (1b) Download the latest source release
+  
+  -- (1b.1) Alternately, you may install Git from the Terminal or Command prompt [following these instructions](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
+  
+\
+\
+
+### Making a GitHub Account
+
+  -- (2a) Go to [Github](https://github.com/) and create an account
+  
+  -- (2b) Create a repository titled "My_First_Repository"
+  
+  -- (2c) Make visibility public
+  
+  -- (2d) Click `Add .ignore` and select `R`
+  
+  -- (2e) Create repository
+  
+  -- (2f) Create a [Personal Access Token or PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and save it **somewhere secure**!
+
+We're not out of the woods yet with authentication, but we can spend a few moments working with GitHub before returning to R.
 
 \
 \
@@ -76,11 +104,49 @@ You will need to set up a GitHub account. You will need to do two things: (1) si
 
 # Walking through GitHub
 
+GitHub is an online database management system that is based on branching folders and subfolders. The 'main' folder for each project is merely the repository. It provides version control, synchronisation, and other services associated with cloud storage systems. It also allows you two additional benefits:
 
-# Practice Makes Permanent
+  -- You are able to provide, directly, to the public, your code and output for reproducibility and transparency purposes. 
+  
+  -- Due to the branching nature of Git, other users of your code are able to make edits to one component of code without influencing the rest of the source code.
+  
+GitHub relies on users making `pull` and `push` actions which are similar to uploading and downloading, although they also contain version-control properties.
+
+\
+\
+\
+
+## Preparing to clone your GitHub folder
+
+In your Github folder, go to the `Code` tab, and then the `code` section, so that you can obtain the `Clone` URL. Save this for later -- you'll need it in R!
+
+\
+\
+\
+
+# Integrating RStudio and GitHub
+
+Now we're ready to integrate RStudio and GitHub. Follow these instructions in order:
+
+  -- (1) Open RStudio
+  
+  -- (2) Following the drop-down menus `File -> New Project -> Version Control -> Git`
+  
+  -- (3) Paste in the `Clone` URL you saved earlier
+  
+  -- (4) Choose your working directory
+  
+  -- (5) Create the project!
+
+You will now be able to go into the directory itself and see that there are some files in there. We'll create additional files shortly.
+
+\
+\
 
 
 ## Produce a Dataset
+
+We will make a very straightforward, two-variable dataset using only a few lines of code. This will allow us to produce a document with some R code to push to GitHub. Create this in an RMarkdown file, output as HTML.
 
 ```{r make_data, message = F, warning = F}
 quant_data <- rnorm(10, 0, 1)
@@ -92,9 +158,32 @@ df <- tibble::as_tibble(cbind(quant_data, qual_data)) %>%
 glimpse(df)
 ```
 
+Make sure that this .Rmd file is in the folder that you have Cloned to GitHub! Save and Knit the .Rmd file -- both should appear in your cloned folder.
+
+\
+\
+\
+
 ## Commit and Push to GitHub
 
+Follow these steps to successfully push something to GitHub.
+
+  -- (1) In the top-right `Environment` pane, click on `Git`.
+  
+  -- (2) Click on `Commit` and then `Push`.
+  
+  -- (3) You will be asked to write in your GitHub username -- do so!
+  
+  -- (4) You will be asked to put in your password -- **PUT IN YOUR PERSONAL ACCESS TOKEN**
+  
+  -- (5) Select all the files on the left and `Push` them to Github.
+
+From here you can make new branches, push and pull more files, create new repositories and clone them to other folders, and more.
+
+\
+\
+\
 
 # Next Week
 
-Next week we will be working with `ggplot2`, `wordcloud2`, and other visualisation commands to make 
+Next week we will be working with `ggplot2`, `wordcloud2`, and other visualisation commands to make various visuals using your data. For obvious reasons we will not include them in this file. On your own, peruse [this cheat-sheet on ggplot](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf) and try to implement any graphic of your choice. See you then!

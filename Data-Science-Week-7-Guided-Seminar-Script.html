@@ -2788,23 +2788,97 @@ in any datasets, instead making some data out of whole cloth and
 <div id="setting-up-your-github-account" class="section level2">
 <h2>Setting up your GitHub Account</h2>
 <p>You will need to set up a GitHub account. You will need to do two
-things: (1) sign up to GitHub at <code>https://github.com</code> with an
-account, and (2) install Github. We will walk through each of these in
-turn:</p>
-<p>– (1) Go to <a href="https://github.com/">Github</a></p>
+things: (1) install Github, and (2) sign up to GitHub at
+<code>https://github.com</code> with an account. I have modified
+instructions from <a href="https://resources.github.com/github-and-rstudio/">this
+document</a> for this tutorial. We will walk through each of these sets
+of instructions in turn:</p>
+<p><br />
+<br />
+</p>
+<div id="install-git-on-your-pc" class="section level3">
+<h3>Install Git on your PC</h3>
+<p>– (1a) Go to <a href="https://git-scm.com/">https://git-scm.com</a></p>
+<p>– (1b) Download the latest source release</p>
+<p>– (1b.1) Alternately, you may install Git from the Terminal or
+Command prompt <a href="https://docs.github.com/en/get-started/getting-started-with-git/set-up-git">following
+these instructions</a></p>
+<p><br />
+<br />
+</p>
+</div>
+<div id="making-a-github-account" class="section level3">
+<h3>Making a GitHub Account</h3>
+<p>– (2a) Go to <a href="https://github.com/">Github</a> and create an
+account</p>
+<p>– (2b) Create a repository titled “My_First_Repository”</p>
+<p>– (2c) Make visibility public</p>
+<p>– (2d) Click <code>Add .ignore</code> and select <code>R</code></p>
+<p>– (2e) Create repository</p>
+<p>– (2f) Create a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">Personal
+Access Token or PAT</a> and save it <strong>somewhere
+secure</strong>!</p>
+<p>We’re not out of the woods yet with authentication, but we can spend
+a few moments working with GitHub before returning to R.</p>
 <p><br />
 <br />
 <br />
 </p>
 </div>
 </div>
+</div>
 <div id="walking-through-github" class="section level1">
 <h1>Walking through GitHub</h1>
+<p>GitHub is an online database management system that is based on
+branching folders and subfolders. The ‘main’ folder for each project is
+merely the repository. It provides version control, synchronisation, and
+other services associated with cloud storage systems. It also allows you
+two additional benefits:</p>
+<p>– You are able to provide, directly, to the public, your code and
+output for reproducibility and transparency purposes.</p>
+<p>– Due to the branching nature of Git, other users of your code are
+able to make edits to one component of code without influencing the rest
+of the source code.</p>
+<p>GitHub relies on users making <code>pull</code> and <code>push</code>
+actions which are similar to uploading and downloading, although they
+also contain version-control properties.</p>
+<p><br />
+<br />
+<br />
+</p>
+<div id="preparing-to-clone-your-github-folder" class="section level2">
+<h2>Preparing to clone your GitHub folder</h2>
+<p>In your Github folder, go to the <code>Code</code> tab, and then the
+<code>code</code> section, so that you can obtain the <code>Clone</code>
+URL. Save this for later – you’ll need it in R!</p>
+<p><br />
+<br />
+<br />
+</p>
 </div>
-<div id="practice-makes-permanent" class="section level1">
-<h1>Practice Makes Permanent</h1>
+</div>
+<div id="integrating-rstudio-and-github" class="section level1">
+<h1>Integrating RStudio and GitHub</h1>
+<p>Now we’re ready to integrate RStudio and GitHub. Follow these
+instructions in order:</p>
+<p>– (1) Open RStudio</p>
+<p>– (2) Following the drop-down menus
+<code>File -&gt; New Project -&gt; Version Control -&gt; Git</code></p>
+<p>– (3) Paste in the <code>Clone</code> URL you saved earlier</p>
+<p>– (4) Choose your working directory</p>
+<p>– (5) Create the project!</p>
+<p>You will now be able to go into the directory itself and see that
+there are some files in there. We’ll create additional files
+shortly.</p>
+<p><br />
+<br />
+</p>
 <div id="produce-a-dataset" class="section level2">
 <h2>Produce a Dataset</h2>
+<p>We will make a very straightforward, two-variable dataset using only
+a few lines of code. This will allow us to produce a document with some
+R code to push to GitHub. Create this in an RMarkdown file, output as
+HTML.</p>
 <pre class="r"><code>quant_data &lt;- rnorm(10, 0, 1)
 qual_data &lt;- c(&quot;Of&quot;, &quot;All&quot;, &quot;The&quot;, &quot;Souls&quot;, &quot;I&quot;, &quot;Have&quot;, &quot;Encountered&quot;, &quot;In&quot;, &quot;My&quot;, &quot;Travels&quot;)
 
@@ -2814,17 +2888,43 @@ df &lt;- tibble::as_tibble(cbind(quant_data, qual_data)) %&gt;%
 glimpse(df)</code></pre>
 <pre><code>## Rows: 10
 ## Columns: 2
-## $ quant_data &lt;dbl&gt; -0.3653409, 0.5829269, -0.5321411, -0.7022723, -0.1239255, …
+## $ quant_data &lt;dbl&gt; 0.21568382, 0.62136913, 0.70341881, -0.03838472, -1.2248197…
 ## $ qual_data  &lt;chr&gt; &quot;Of&quot;, &quot;All&quot;, &quot;The&quot;, &quot;Souls&quot;, &quot;I&quot;, &quot;Have&quot;, &quot;Encountered&quot;, &quot;I…</code></pre>
+<p>Make sure that this .Rmd file is in the folder that you have Cloned
+to GitHub! Save and Knit the .Rmd file – both should appear in your
+cloned folder.</p>
+<p><br />
+<br />
+<br />
+</p>
 </div>
 <div id="commit-and-push-to-github" class="section level2">
 <h2>Commit and Push to GitHub</h2>
+<p>Follow these steps to successfully push something to GitHub.</p>
+<p>– (1) In the top-right <code>Environment</code> pane, click on
+<code>Git</code>.</p>
+<p>– (2) Click on <code>Commit</code> and then <code>Push</code>.</p>
+<p>– (3) You will be asked to write in your GitHub username – do so!</p>
+<p>– (4) You will be asked to put in your password – <strong>PUT IN YOUR
+PERSONAL ACCESS TOKEN</strong></p>
+<p>– (5) Select all the files on the left and <code>Push</code> them to
+Github.</p>
+<p>From here you can make new branches, push and pull more files, create
+new repositories and clone them to other folders, and more.</p>
+<p><br />
+<br />
+<br />
+</p>
 </div>
 </div>
 <div id="next-week" class="section level1">
 <h1>Next Week</h1>
 <p>Next week we will be working with <code>ggplot2</code>,
-<code>wordcloud2</code>, and other visualisation commands to make</p>
+<code>wordcloud2</code>, and other visualisation commands to make
+various visuals using your data. For obvious reasons we will not include
+them in this file. On your own, peruse <a href="https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf">this
+cheat-sheet on ggplot</a> and try to implement any graphic of your
+choice. See you then!</p>
 </div>
 
 
