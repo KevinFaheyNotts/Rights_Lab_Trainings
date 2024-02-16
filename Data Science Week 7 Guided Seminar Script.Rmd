@@ -46,16 +46,41 @@ knitr::opts_chunk$set(echo = TRUE,
 
 # Overview
 
+Today we will be engaging in a very straightforward exercise, with a **substantial** number of opportunities to overlook crucial instructions. Therefore, please read through every component of this document before undertaking any coding.
+
+\
+\
+\
+
+## Today's packages
+
+You will not need any new packages today. Most of the new coding changes will be in installing GitHub and setting up 'cloning' in RStudio, rather than making major coding changes in R. We will not load in any datasets, instead making some data out of whole cloth and 'pushing' it to GitHub.
+
 ```{r preamble, message = F, warning = F}
 library(tidyverse)
-library(tidymodels)
 ```
 
+\
+\
+\
+
+## Setting up your GitHub Account
+
+You will need to set up a GitHub account. You will need to do two things: (1) sign up to GitHub at `https://github.com` with an account, and (2) install Github. We will walk through each of these in turn:
+
+  -- (1) Go to [Github](https://github.com/)
+
+\
+\
+\
 
 # Walking through GitHub
 
 
 # Practice Makes Permanent
+
+
+## Produce a Dataset
 
 ```{r make_data, message = F, warning = F}
 quant_data <- rnorm(10, 0, 1)
@@ -63,7 +88,13 @@ qual_data <- c("Of", "All", "The", "Souls", "I", "Have", "Encountered", "In", "M
 
 df <- tibble::as_tibble(cbind(quant_data, qual_data)) %>%
   mutate(quant_data = as.numeric(paste0(quant_data, sep = "")))
+
+glimpse(df)
 ```
 
+## Commit and Push to GitHub
 
 
+# Next Week
+
+Next week we will be working with `ggplot2`, `wordcloud2`, and other visualisation commands to make 

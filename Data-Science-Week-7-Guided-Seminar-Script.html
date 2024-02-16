@@ -2764,19 +2764,67 @@ Script</h1>
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<pre class="r"><code>library(tidyverse)
-library(tidymodels)</code></pre>
+<p>Today we will be engaging in a very straightforward exercise, with a
+<strong>substantial</strong> number of opportunities to overlook crucial
+instructions. Therefore, please read through every component of this
+document before undertaking any coding.</p>
+<p><br />
+<br />
+<br />
+</p>
+<div id="todays-packages" class="section level2">
+<h2>Today’s packages</h2>
+<p>You will not need any new packages today. Most of the new coding
+changes will be in installing GitHub and setting up ‘cloning’ in
+RStudio, rather than making major coding changes in R. We will not load
+in any datasets, instead making some data out of whole cloth and
+‘pushing’ it to GitHub.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p><br />
+<br />
+<br />
+</p>
+</div>
+<div id="setting-up-your-github-account" class="section level2">
+<h2>Setting up your GitHub Account</h2>
+<p>You will need to set up a GitHub account. You will need to do two
+things: (1) sign up to GitHub at <code>https://github.com</code> with an
+account, and (2) install Github. We will walk through each of these in
+turn:</p>
+<p>– (1) Go to <a href="https://github.com/">Github</a></p>
+<p><br />
+<br />
+<br />
+</p>
+</div>
 </div>
 <div id="walking-through-github" class="section level1">
 <h1>Walking through GitHub</h1>
 </div>
 <div id="practice-makes-permanent" class="section level1">
 <h1>Practice Makes Permanent</h1>
+<div id="produce-a-dataset" class="section level2">
+<h2>Produce a Dataset</h2>
 <pre class="r"><code>quant_data &lt;- rnorm(10, 0, 1)
 qual_data &lt;- c(&quot;Of&quot;, &quot;All&quot;, &quot;The&quot;, &quot;Souls&quot;, &quot;I&quot;, &quot;Have&quot;, &quot;Encountered&quot;, &quot;In&quot;, &quot;My&quot;, &quot;Travels&quot;)
 
 df &lt;- tibble::as_tibble(cbind(quant_data, qual_data)) %&gt;%
-  mutate(quant_data = as.numeric(paste0(quant_data, sep = &quot;&quot;)))</code></pre>
+  mutate(quant_data = as.numeric(paste0(quant_data, sep = &quot;&quot;)))
+
+glimpse(df)</code></pre>
+<pre><code>## Rows: 10
+## Columns: 2
+## $ quant_data &lt;dbl&gt; -0.3653409, 0.5829269, -0.5321411, -0.7022723, -0.1239255, …
+## $ qual_data  &lt;chr&gt; &quot;Of&quot;, &quot;All&quot;, &quot;The&quot;, &quot;Souls&quot;, &quot;I&quot;, &quot;Have&quot;, &quot;Encountered&quot;, &quot;I…</code></pre>
+</div>
+<div id="commit-and-push-to-github" class="section level2">
+<h2>Commit and Push to GitHub</h2>
+</div>
+</div>
+<div id="next-week" class="section level1">
+<h1>Next Week</h1>
+<p>Next week we will be working with <code>ggplot2</code>,
+<code>wordcloud2</code>, and other visualisation commands to make</p>
 </div>
 
 
