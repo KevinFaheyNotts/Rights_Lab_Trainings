@@ -1,0 +1,69 @@
+---
+html_document:
+  df_print: paged
+date: "20 February 2024"
+output:
+  # pdf_document:
+  #   fig_caption: yes
+  #   keep_tex: yes
+  html_document:
+    df_print: paged
+    fig_caption: yes
+    toc: true
+    toc_float: true
+    number_sections: false
+fontfamily: mathpazo
+fontsize: 11pt
+geometry: margin=1in
+header-includes: 
+  - \linespread{1.05}
+  - \usepackage{graphicx}
+  - \usepackage{float}
+title: "Data Science Week 7 Guided Seminar Script"
+classroom: '*online*'
+classhours: TBA
+web: MOODLE
+instructor: Kevin Fahey
+email: kevin.fahey@nottingham.ac.uk
+officehours: TBD
+linkcolor: dullmagenta
+citecolor: Maroon
+filecolor: red
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.path="figure/graphics-", 
+                      cache.path="cache/graphics-", 
+                      fig.align="center",
+                      external=TRUE,
+                      warning=FALSE,
+                      fig.pos="H",
+                      number_sections = FALSE)
+
+```
+
+# Overview
+
+```{r preamble, message = F, warning = F}
+library(tidyverse)
+library(tidymodels)
+```
+
+
+# Walking through GitHub
+
+
+# Practice Makes Permanent
+
+```{r make_data, message = F, warning = F}
+quant_data <- rnorm(10, 0, 1)
+qual_data <- c("Of", "All", "The", "Souls", "I", "Have", "Encountered", "In", "My", "Travels")
+
+df <- tibble::as_tibble(cbind(quant_data, qual_data)) %>%
+  mutate(quant_data = as.numeric(paste0(quant_data, sep = "")))
+```
+
+
+
